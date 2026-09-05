@@ -1,0 +1,68 @@
+# Copyright — S&J's AIO Gen2
+
+Copyright (c) 2026 Shadowjackyl & JadeflowerFoxx
+(“S&J”, a family project)
+
+All original work in this mod that we wrote ourselves is copyrighted
+and owned by S&J. This is **version 1.0.0-beta**, published by us on
+GitHub so people can download and play it and report bugs back to us.
+
+## You may
+
+- download and play this beta for your own use with Gen2Recomp(ed)
+  (Gold, Silver or Crystal)
+- keep a private backup copy for yourself
+- report bugs, issues, and suggestions to us
+- link to our official GitHub release so other people can find it
+
+## You may **not**
+
+- copy, upload, or re-host this package or its code on other sites,
+  Discord servers, or any GitHub repo other than our official release
+- put it inside or bundle it with another mod, project, or collection
+- sell it, monetize it, or claim any part of it as your own
+- strip our names, this notice, or the credits
+- reuse or adapt our original code, art, or UI in other projects
+- redistribute any cache or extracted content built from your own
+  imported ROM (see below)
+
+This is **all rights reserved**. We may later replace this file with a
+more open license (for example MIT) and announce that change; until we
+do, this file wins.
+
+---
+
+## What this does **not** cover
+
+We do **not** own Pokémon, Pokémon Stadium 2, Game Boy sprites, music,
+maps, or anything decoded from a ROM. Those belong to Nintendo /
+The Pokémon Company / Game Freak / their licensors.
+
+This package does not include ROMs, and it does not include any Stadium
+model pack, extracted texture, voice, or music pulled from a ROM. Do
+not redistribute any cache built from your imported ROM.
+
+Third-party code we adapted stays under **its own** licenses. We cannot
+re-copyright those files as “ours only”:
+
+- Gen2Recomp(ed) engine — **UNDERdecoded (Ceedrack)** — see `CREDITS.md`
+- DramaticShapes — MIT — `UPSTREAM_DRAMATIC_SHAPES_LICENSE.txt`
+- StadiumBattleFX pieces — MIT — `UPSTREAM_STADIUM_BATTLE_FX_LICENSE.txt`
+- Stadium 2 Importer (`lib/s2v/`) — see `THIRD_PARTY_NOTICES.md`
+- Other credits — `CREDITS.md` and `THIRD_PARTY_NOTICES.md`
+
+If this notice and an MIT file both apply to the same file, the MIT
+file still applies to the **upstream** parts; our extra glue stays
+under this family copyright.
+
+---
+
+## Contact / future notice
+
+This project is published as **S&J's AIO Gen2 beta** (v1.0.0-beta).
+When we open the code or change this license, we will update this file
+and the GitHub release. Until that happens, treat the original AIO code
+as owned by S&J and covered by this notice.
+
+THIS SOFTWARE IS PROVIDED AS-IS, WITHOUT WARRANTY OF ANY KIND.
+Play at your own risk. We are not affiliated with Nintendo.
