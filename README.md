@@ -180,7 +180,6 @@ screen and stays in sync** everywhere:
 | `8` | 3D-BTL (staged map battles) on/off |
 | `9` | WATER (reflections) cycle |
 | `M` | SOUND stereo/mono |
-| `F7` | Dump current options for debugging |
 | Konami code | Horde minigame |
 
 While this mod is enabled the engine's **TILT** (`3` was its key), **GBC FX**
