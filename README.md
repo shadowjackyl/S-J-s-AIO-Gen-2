@@ -17,73 +17,70 @@ No Pokémon ROM or extracted game assets are included.
 
 ---
 
-## What's new in 1.0.2 beta
+## What's new in 1.0.3 beta
 
-Everything below is on top of 1.0.1-beta, which rebuilt the Pokégear MAP
-card, the FLY picker and the Pokédex AREA panel on the real Gen 2 region map.
+Everything below is on top of **1.0.2-beta**. Three modules changed
+(`All251Catchable`, `StadiumUI`, `RegionMap`); the other 168 are untouched.
 
-**Stadium arenas**
+**Catch them all, on any cart**
 
-- A trainer battle used to open on the voxel overworld and cut to its Stadium
-  field a second later. The field is now decided once, when the battle starts,
-  and the fight opens on it.
-- The rival is recognised whatever you named him, so RIVAL fights get a field.
-- `GYMS / E4` used to behave as ALL BATTLES; it is now the restrictive option
-  it claims to be. Link battles count as trainer battles.
-- Fields match the place you are standing in. Mt. Silver works at all (the
-  maps are `SILVER_CAVE_*`, which nothing matched), Lavender's radio tower is
-  no longer a Rocket base, and a gym's speech house is no longer the gym.
-- The early rival fights use the field of the place they happen in; RIVAL'S
-  FIELD is kept for Victory Road and the Indigo Plateau.
-- The Burned Tower, the Ruins of Alph, Dark Cave, Slowpoke Well and Union
-  Cave get a dimmed, colder version of the indoor field.
-- The Elite Four and the Champion get the announcer in GYMS mode. They never
-  did before.
+- Every one of the 251 is obtainable on Gold, Silver and Crystal without
+  trading. Gaps closed: Ekans/Arbok on Gold, Sandshrew/Sandslash on Silver,
+  and Porygon, which was gated behind TRADE EVOS WILD despite not being a
+  trade evolution.
+- Trade evolutions level up instead of needing a cable — and an item-gated
+  one now wants the item in hand, so Slowpoke can still become Slowbro.
+  Stone evolutions are untouched.
 
-**Battle HUD**
+**Every Pokémon has a nest**
 
-- Every Pokémon showed as female. Gender compares the Attack DV scaled by 16;
-  the scale was missing. Breeding and Attract were never affected — only the
-  mark this mod draws.
-- Shiny Pokémon are now marked with a gold star.
-- ENEMY HUD SIZE and PLAYER HUD SIZE did nothing at all; they work now.
+- The Pokédex AREA answers for all 251 on every cart, and each entry is a
+  real encounter — except the five in-game legendaries, which name their
+  place without being given a wild spawn, so how you get them is unchanged.
+  Ho-Oh and Lugia sit on the Tin Tower and in the Whirl Islands; the three
+  roaming beasts are tracked live, so AREA names whichever route each one is
+  on right now.
+- Only grass and water tables count as a nest. Fishing, headbutt, swarms and
+  the Bug Contest do not — which is why Caterpie showed nothing on Silver,
+  where the contest is its only source.
+- Nocturnal and morning-only Pokémon were invisible to the AREA scan, which
+  read only a table's day slots.
+- The dex screen could not find its own species: the engine keys Pokémon by
+  `SPECIES_010` while the screen counts in dex numbers.
 
-**Settings**
+**AREA shows where and when**
 
-- Three of the five WILD SHINY RATE options silently behaved as NATURAL.
-- With 3D BATTLE off, the settings that depend on it are hidden rather than
-  shown doing nothing.
+- Each habitat is tagged **MORN / DAY / NITE**, or **ANYTIME** when there is
+  no restriction.
+- It opens on the current clock and on the region you are standing in, and
+  dims — rather than hides — the places a species is not out at right now.
+- The Pokédex and its AREA map now stay skinned during a battle.
 
---- | --- |
-| Three abstract blobs standing in for Johto/Kanto | A real region map — coastline, sand shoreline and surf, mountain ranges, forests, Lake of Rage, the full route network, and city blocks that read as towns |
-| The **YOU ARE HERE** pin was pinned to 48% / 48% of the card and never moved | The pin sits on the landmark you are actually standing in, resolved from the engine's map id (interiors resolve to their town: `VIOLET_GYM` → Violet City) |
-| The FLY list was re-sorted alphabetically while the cursor index stayed the engine's | Engine order in, engine order out — the highlighted row is the destination FLY will actually take, every time |
-| No indication which region you were looking at | The page follows the cursor: select a Kanto town and the map turns to Kanto. JOHTO / KANTO tabs, and a per-row region chip in the list |
-| Bevel lines and travelling frame glints drawn straight across the map body | The map card is a flat inset with one hairline rim. No nested frame, no motion pass over the map |
-| Seam lines between map cells at some UI scales | The landmass is filled as whole horizontal runs at whole-pixel scale, so adjacent cells cannot seam |
-| Pokédex **AREA** was a bullet list of map names | AREA draws the region map with a pulsing dot on every habitat, the names beside it, and picks the region where the species actually lives |
-| Any screen carrying a `bg` field could be mistaken for a town map | The claim is narrowed to real map states, plus the Pokégear MAP card by name |
+**Land Pokémon stay on land** — visible wilds are checked against the
+destination cell as they move, so a land Pokémon no longer walks across water
+to reach a spot on the far shore.
 
-Landmark positions come from the published `pokecrystal` landmark table, so
-every town, route and cave sits exactly where Gold/Silver/Crystal puts it. The
-map itself is drawn procedurally — no Nintendo map art is copied, decoded or
-redistributed.
-
----
+**Lore-accurate hours and places** — spawn times come from when each species
+actually appears in the game's own tables: Ledyba morning, Spinarak and
+Hoothoot night, Caterpie morning and day.
 
 ## Options & settings
 
-Settings are spread across the **Mod Manager** (this mod), **Pause → STADIUM**,
-and **OPTIONS** (this mod's rows sit with the display modes, plus **WILDS /
-WEATHER / DISPLAY** sub-pages and the **CUSTOM UI** studio). The same value
-stays in sync everywhere. Quick keys: `3` VOXEL camera · `5` V-GRID · `6`
-tilt-shift · `7` V-CURVE · `8` 3D-BTL · `9` WATER · `M` SOUND.
+**Every setting is reachable from in-game OPTIONS** — the Mod Manager is a
+mirror, not the only way in. OPTIONS carries this mod's own rows plus five
+sub-pages — **WILDS**, **ALL 251**, **WEATHER**, **DISPLAY / SPRITES** and the
+**CUSTOM UI** studio — and **Pause → STADIUM** holds the 3D battle, model and
+arena rows with its own 30-field picker. The same value
+stays in sync everywhere. Quick keys this mod registers: `3` steps the VOXEL
+render pipeline and `6` steps T-SHIFT; `M` toggles SOUND. Everything else is
+reached through its OPTIONS row.
 
 ### Wild Pokémon (encounters & all 251)
 
 | Setting | What it does |
 | --- | --- |
-| **ALL 251 WILDS** | Only adds Pokémon this cart can't already get. BALANCED = 35% of rolls on catalog floors become extras; 100% UNOWNED CYCLE rotates through still-uncaught extras; OFF = none. Legends appear once, then stop once owned. |
+| **ALL 251** *(OPTIONS → ALL 251)* | Only adds Pokémon this cart can't already get. After a normal encounter roll on a floor that has extras, 35% become an extra — and **which** extra is decided per species: a slot share measured from the games' own tables, so common Pokémon are common and rarities are rare. There is no rate dial to get wrong. |
+| **Added legendaries** | One per save: once caught, that legend never rolls again. Their odds start at the floor and lift a little with every badge — barely there at the start, a real possibility by the Elite Four — and they only roll once your party can plausibly face them. |
 | **TRADE EVOS WILD** | Let Alakazam, Machamp, Golem, Gengar, Politoed, Slowking, Steelix, Scizor, Kingdra and Porygon2 appear as extras on themed floors. |
 | **SHOW WILD MONS** | Draw encounter-table Pokémon as touch-to-battle models in the voxel overworld (OFF = hidden encounters only). |
 | **SPAWN AMOUNT** | How many visible grass/cave/water wilds stay near the map (lower first on Android). |
@@ -117,6 +114,7 @@ tilt-shift · `7` V-CURVE · `8` 3D-BTL · `9` WATER · `M` SOUND.
 | **AA** | Supersample the 3D world to smooth edges (OFF/2X/4X — the priciest row). |
 | **HORIZON / HORIZON ART** | 360° panorama around outdoor maps; AUTO picks the biome strip or pin one panorama. |
 | **CLASSIC SPRITES** | STADIUM models / GAME BOY cart sprites / GBC COLOR boost. |
+| **TOWN MAP** | ON draws this mod's region map on the Pokégear MAP card, the FLY picker and the Pokédex AREA screen. OFF (ENGINE MAP) hands all three back to the game's own town map; nothing else changes. |
 | **SOUND** | STEREO (chip channels split) or MONO. |
 
 ### Battles & Stadium 2 (ROM for the model/arena rows)
@@ -126,6 +124,7 @@ tilt-shift · `7` V-CURVE · `8` 3D-BTL · `9` WATER · `M` SOUND.
 | **3D-BTL** | Fight on the map, shot over the shoulder with parallax drift (OFF = classic screen). |
 | **BACK SPRITES** | Keep your own mon on the battle menu from behind instead of on the map. |
 | **STADIUM MODELS** | Imported Stadium models in battles, the overworld and Pokédex art. |
+| **STADIUM 2 MODEL ANIMS** | Animate those models in battle (OFF holds them on a static pose). Hidden while 3D BATTLE is off. |
 | **ANIMATION SOURCE** | ULTIMATE (this mod's native-timed clips) or IMPORTER dispatch. |
 | **MODEL SHADER** | Stadium lighting or watercolor-manga. |
 | **BATTLE AA** | Supersample the 3D battle scene (2X/4X), capped by the device. |
@@ -141,14 +140,15 @@ tilt-shift · `7` V-CURVE · `8` 3D-BTL · `9` WATER · `M` SOUND.
 
 | Setting | What it does |
 | --- | --- |
-| **CUSTOM UI / MENUS** | Master switch for the dark-glass menus (look only). |
+| **CUSTOM UI / MENUS** | Master switch for the dark-glass menus (look only). It sits on the OPTIONS list itself rather than inside a glass page, so turning it off never leaves you somewhere you cannot turn it back on. |
 | **UI SIZE / TEXT SIZE** | Scale the glass menus and their text (separately). |
 | **GLASS TINT / GLASS COLOR / ACCENT** | Panel opacity; panel tint (navy→wine); highlight color (gold/sky/…). |
 | **CORNERS / UI FRAME** | Panel rounding and border treatment. |
 | **MENU MOTION / BRIGHTNESS / SPEED** | Animated highlight effect and its strength/speed. |
 | **HOLIDAY THEME** | Seasonal UI recolor (auto/halloween/winter/valentine/summer). |
 | **BATTLE HUD** | CLEAN + GENDER glass cards or CLASSIC GB tiles. |
-| **HUD SIZES / DIALOG BOX SIZE** | Battle card scale (global, enemy, player) and the message box size. |
+| **BATTLE / ENEMY / PLAYER HUD SIZE** | Battle card scale — one for both sides, plus a per-side override (AUTO follows BATTLE HUD SIZE). |
+| **DIALOG BOX SIZE** | The battle message box size. |
 
 ### Experience Share (OPTIONS rows)
 
